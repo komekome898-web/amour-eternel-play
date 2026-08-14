@@ -1,0 +1,60 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>絵が出るかの確認</title>
+<style>
+body{margin:0;padding:20px;background:#14111a;color:#ece5ee;
+ font:16px/1.8 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+h1{font-size:19px;margin:0 0 6px}
+p.sub{color:#a396ac;font-size:13px;margin:0 0 18px}
+.box{border:1px solid #332b3a;border-radius:10px;padding:14px;margin:0 0 14px;background:#1c1724}
+.t{font-size:13px;color:#a396ac;margin:0 0 8px}
+.r{font-size:22px;font-weight:700;margin:8px 0 0}
+.ok{color:#7fd6a0}.ng{color:#ff8a9c}
+#a{width:120px;height:215px;object-fit:cover;border-radius:6px;background:#000}
+#b{width:120px;height:215px;border-radius:6px;background:#000 center/cover no-repeat}
+.big{margin:18px 0 0;padding:16px;border-radius:10px;background:#241f2c;font-size:17px;font-weight:700}
+</style></head><body>
+<h1>絵が出るかの確認</h1>
+<p class="sub">この画面を見るだけで結果が出ます。何も操作は要りません。</p>
+
+<div class="box">
+  <p class="t">① ふつうの画像として</p>
+  <img id="a" alt="">
+  <p class="r" id="ra">確認中…</p>
+</div>
+
+<div class="box">
+  <p class="t">② 背景画像として（ゲームがこの方式を使っています）</p>
+  <div id="b"></div>
+  <p class="r" id="rb">確認中…</p>
+</div>
+
+<div class="big" id="verdict">判定中…</div>
+
+<script>
+var SRC = "/amour-eternel-play/play/assets/assets/characters/leon.3cb63111062fbd754c42d34ce3dfa180.jpg";
+var a=document.getElementById('a'), b=document.getElementById('b');
+var ra=document.getElementById('ra'), rb=document.getElementById('rb');
+var v=document.getElementById('verdict');
+var s1=null, s2=null;
+function done(){
+  if(s1===null||s2===null) return;
+  if(s1&&s2)      v.innerHTML='両方とも出ています。<br>→ 画像そのものは、この端末に届いています。';
+  else if(s1&&!s2)v.innerHTML='①だけ出ています。<br>→ <b>背景画像の方式が、この端末で効いていません。</b>これが原因です。';
+  else if(!s1&&s2)v.innerHTML='②だけ出ています。';
+  else            v.innerHTML='どちらも出ていません。<br>→ <b>画像がこの端末に届いていません。</b>通信か配信の問題です。';
+}
+a.onload=function(){s1=a.naturalWidth>0; ra.textContent=s1?'出た':'出ない'; ra.className='r '+(s1?'ok':'ng'); done();};
+a.onerror=function(){s1=false; ra.textContent='出ない（取得できず）'; ra.className='r ng'; done();};
+a.src=SRC;
+var probe=new Image();
+probe.onload=function(){b.style.backgroundImage='url("'+SRC+'")';
+  setTimeout(function(){var u=getComputedStyle(b).backgroundImage;
+    s2=!!(u&&u.indexOf('url')>=0); rb.textContent=s2?'出た':'出ない';
+    rb.className='r '+(s2?'ok':'ng'); done();},400);};
+probe.onerror=function(){s2=false; rb.textContent='出ない（取得できず）'; rb.className='r ng'; done();};
+probe.src=SRC;
+setTimeout(function(){ if(s1===null){s1=false;ra.textContent='出ない（時間切れ）';ra.className='r ng';}
+                       if(s2===null){s2=false;rb.textContent='出ない（時間切れ）';rb.className='r ng';}
+                       done(); },8000);
+</script></body></html>
