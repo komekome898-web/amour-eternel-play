@@ -1,0 +1,60 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ゲームの中身を読む</title>
+<style>
+body{margin:0;padding:14px;background:#14111a;color:#ece5ee;
+ font:14px/1.65 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+h1{font-size:16px;margin:0 0 4px}
+.s{color:#a396ac;font-size:11px;margin:0 0 12px}
+#out{white-space:pre-wrap;font:12px/1.6 ui-monospace,Menlo,monospace;
+ background:#1c1724;border:1px solid #332b3a;border-radius:8px;padding:12px}
+b{color:#ffd479}
+iframe{position:absolute;left:-9999px;width:375px;height:812px;border:0}
+</style></head><body>
+<h1>ゲームの中身を読む</h1>
+<p class="s">裏でゲームを開いて、絵の要素が今どうなっているかを読み出します。10秒ほどお待ちください。</p>
+<div id="out">読み取り中…</div>
+<iframe id="f" src="/amour-eternel-play/play/"></iframe>
+<script>
+var out=document.getElementById('out');
+function line(k,v){return k+': '+v+'\n';}
+setTimeout(function(){
+  var t='';
+  try{
+    var d=document.getElementById('f').contentDocument;
+    if(!d){out.textContent='ゲームの中を読めませんでした。';return;}
+    var all=d.querySelectorAll('*');
+    t+=line('画面の要素の数', all.length);
+    var imgs=d.querySelectorAll('img');
+    t+=line('imgタグの数', imgs.length);
+    var loaded=0; for(var i=0;i<imgs.length;i++){ if(imgs[i].naturalWidth>0) loaded++; }
+    t+=line('うち読み込めたもの', loaded);
+    var bg=[], big=null;
+    for(var i=0;i<all.length;i++){
+      var e=all[i], s=d.defaultView.getComputedStyle(e);
+      if(s.backgroundImage && s.backgroundImage.indexOf('url(')>=0){
+        var r=e.getBoundingClientRect();
+        bg.push({w:Math.round(r.width),h:Math.round(r.height),z:s.zIndex,op:s.opacity,vis:s.visibility,
+                 u:s.backgroundImage.slice(0,60)});
+        if(r.width>100&&r.height>150&&!big) big=bg[bg.length-1];
+      }
+    }
+    t+=line('背景画像を持つ要素', bg.length);
+    t+='\n';
+    if(big){
+      t+='■ 立ち絵の要素\n';
+      t+=line(' 大きさ', big.w+' x '+big.h);
+      t+=line(' z-index', big.z);
+      t+=line(' 透明度', big.op);
+      t+=line(' 表示', big.vis);
+      t+=line(' 画像', big.u);
+    } else {
+      t+='■ 立ち絵の要素が 見つかりません\n';
+      t+='  → 絵の指定そのものが入っていません\n';
+    }
+    var txt=(d.body.innerText||'').replace(/\s+/g,' ').slice(0,60);
+    t+='\n'+line('画面の文字', txt);
+  }catch(e){ t+='読み取りに失敗: '+e.message; }
+  out.textContent=t;
+},9000);
+</script></body></html>
