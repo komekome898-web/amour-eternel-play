@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Amour Éternel</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <link rel="icon" href="/amour-eternel-play/play/favicon.ico"/>  <meta name="description" content="六人が奪い合い、互いにも惹かれ合う乙女ゲーム。6人の男性と暮らす館の物語。基本プレイ無料。">
+    <link rel="canonical" href="https://komekome898-web.github.io/amour-eternel-play/play/">
+    <meta name="theme-color" content="#120B1C">
+  </head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/amour-eternel-play/play/_expo/static/js/web/index-a2b64cbee8f673044c73020940d36ab3.js" defer></script>
+
+<style>
+#ae-notice{position:fixed;inset:0;z-index:2147483000;display:none;
+background:rgba(8,4,14,.72);backdrop-filter:blur(3px);
+align-items:center;justify-content:center;padding:18px;
+font:400 14px/1.85 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+#ae-notice.on{display:flex}
+#ae-notice-card{max-width:400px;width:100%;max-height:88vh;overflow:auto;
+background:#1C1229;color:#DCCCEF;border:1px solid rgba(201,166,224,.26);
+border-radius:16px;padding:22px 20px}
+#ae-notice h2{margin:0 0 4px;font-size:17px;color:#D8BC85;
+font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400;letter-spacing:.06em}
+#ae-notice p.lead{margin:0 0 14px;font-size:12px;color:#A08FB8}
+#ae-notice ul{margin:0 0 14px;padding-left:18px}
+#ae-notice li{margin:7px 0;font-size:13.5px}
+#ae-notice b{color:#F6EDFF}
+#ae-notice .links{font-size:13px;margin:0 0 16px}
+#ae-notice .links a{color:#C9A6E0;margin-right:14px}
+#ae-notice button.ok{all:unset;display:block;width:100%;text-align:center;cursor:pointer;
+padding:13px;border-radius:999px;background:linear-gradient(180deg,#6E3583,#4A2359);
+color:#fff;font-weight:700;letter-spacing:.08em;border:1px solid #C9A6E0}
+#ae-notice-open{position:fixed;left:6px;bottom:6px;z-index:2147482000;
+width:22px;height:22px;border-radius:50%;background:rgba(18,11,28,.7);
+border:1px solid rgba(201,166,224,.3);color:#C9A6E0;
+font:400 12px/20px system-ui;text-align:center;cursor:pointer;padding:0;opacity:.55}
+#ae-notice-open:hover{opacity:1}
+</style>
+<div id="ae-notice" role="dialog" aria-modal="true" aria-labelledby="ae-notice-title">
+  <div id="ae-notice-card">
+    <h2 id="ae-notice-title">はじめに</h2>
+    <p class="lead">先に、正直に書いておきます。</p>
+    <ul>
+      <li><b>音声はすべて合成音声です。</b>実在の声優は起用していません。</li>
+      <li><b>一部のイラストは生成AIで制作しています。</b></li>
+      <li><b>「灯火」の会話相手はAIです。</b>人間ではありません。深刻な悩みについては、
+        現実の相談窓口をご案内します。</li>
+      <li><b>セーブはこのブラウザの中にだけ保存されます。</b>サイトデータを消すと、
+        戻す手段はありません。</li>
+      <li><b>基本プレイは無料です。</b>現在、実際の請求は発生しません。</li>
+    </ul>
+    <p class="links">
+      <a href="/amour-eternel-play/legal/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+      <a href="/amour-eternel-play/legal/terms.html" target="_blank" rel="noopener">利用規約</a>
+    </p>
+    <button type="button" class="ok" id="ae-notice-ok">わかりました</button>
+  </div>
+</div>
+<button type="button" id="ae-notice-open" aria-label="AIの利用とプライバシーについて">i</button>
+<script>
+(function(){
+  var K='amour-eternel:notice-v1';
+  var box=document.getElementById('ae-notice');
+  var seen=false;
+  try{ seen = localStorage.getItem(K)==='seen'; }catch(e){}
+  function open(){ box.classList.add('on'); }
+  function close(){
+    box.classList.remove('on');
+    try{ localStorage.setItem(K,'seen'); }catch(e){}
+  }
+  document.getElementById('ae-notice-ok').addEventListener('click',close);
+  document.getElementById('ae-notice-open').addEventListener('click',open);
+  box.addEventListener('click',function(e){ if(e.target===box) close(); });
+  if(!seen) open();
+})();
+</script>
+<script>
+/*
+ * marketing/analytics.js — 匿名の到達計測（ファネル）
+ * ===========================================================================
+ * `docs/BUSINESS_CASE.md` §4 の課金率3%・ARPPU¥3,000 は**仮定**であって実測ではない。
+ * 公開後に実データで置き換えるために、最低限これだけを数える。
+ *
+ *   1. 何人が来たか                  → /lp（LP）、/play（ゲーム）
+ *   2. 何人が実際に遊び始めたか        → イベント start（主人公の名前を決めた）
+ *   3. 何人が第1話を読み終えたか      → イベント ep1-clear
+ *   4. 何人が2話目まで進んだか        → イベント ep2-clear
+ *
+ * ---------------------------------------------------------------------------
+ * 設計方針（プライバシーポリシー §6 と一字一句対応させること）
+ * ---------------------------------------------------------------------------
+ * - **既定では一切の通信をしない。** 送信先 `` が
+ *   空文字のままなら、このスクリプトは即座に return する。
+ *   → 送信先を設定するまで、外部へ1バイトも出ない
+ * - **Cookie を使わない。識別子を作らない。** ユーザーIDも端末IDも持たない
+ * - **送るのは固定の文字列だけ。** リファラ・画面サイズ・クエリ文字列・
+ *   ページタイトル・主人公名・会話の内容は**送らない**（送る項目を下の
+ *   `ping()` に限定してあるので、コードを読めば全部わかる）
+ * - **各イベントは1ブラウザにつき1回だけ。** 送信済みの印だけを
+ *   `amour-eternel:metrics:v1` に置く（真偽値のみ。中身は下の `mark()` を参照）
+ * - **オプトアウトを尊重する。** Do Not Track、GoatCounter 互換の `skipgc`、
+ *   および本作のプライバシーポリシー上の停止ボタン
+ *   （`amour-eternel:no-analytics`）のいずれかで完全に停止する
+ *
+ * ゲーム本体（`components/**`）には一切手を入れていない。
+ * 進捗は端末に保存されたセーブ（`amour-eternel:save:v1`）を**読むだけ**で判定する。
+ * ゲーム側の実装を汚さないための構造であって、本来は
+ * ゲーム側から明示的にイベントを出すほうが正確である（`README.md` に記載）。
+ */
+(function () {
+  'use strict';
+
+  /** 送信先。build_site.py が置換する。空なら何もしない。 */
+  var ENDPOINT = '';
+  /** このページの識別（'lp' または 'play'）。build_site.py が置換する。 */
+  var PAGE = 'play';
+
+  if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) return;
+
+  var SAVE_KEY = 'amour-eternel:save:v1';
+  var SENT_KEY = 'amour-eternel:metrics:v1';
+
+  function ls() {
+    try {
+      return window.localStorage;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // --- オプトアウト -------------------------------------------------------
+  var store = ls();
+  if (!store) return; // localStorage が使えない環境では計測しない（判定も保存もできないため）
+  try {
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+    if (store.getItem('amour-eternel:no-analytics') === 'yes') return;
+    if (store.getItem('skipgc') === 't') return;
+  } catch (e) {
+    return;
+  }
+
+  function sent() {
+    try {
+      return JSON.parse(store.getItem(SENT_KEY)) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function mark(key) {
+    try {
+      var s = sent();
+      s[key] = 1;
+      store.setItem(SENT_KEY, JSON.stringify(s));
+    } catch (e) {
+      /* 保存できなくても計測は続ける（重複するだけで害はない） */
+    }
+  }
+
+  /**
+   * 送信は 1x1 の画像取得1回だけ。fetch も XHR も使わない。
+   * パラメータは GoatCounter の /count と同じ綴り（p=パス, e=イベント, rnd=キャッシュ避け）。
+   * **r（リファラ）, s（画面サイズ）, q（クエリ）, t（タイトル）は意図的に送らない。**
+   */
+  function ping(path, isEvent) {
+    var url =
+      ENDPOINT +
+      (ENDPOINT.indexOf('?') < 0 ? '?' : '&') +
+      'p=' +
+      encodeURIComponent(path) +
+      (isEvent ? '&e=1' : '') +
+      '&rnd=' +
+      Math.random().toString(36).slice(2, 7);
+    var img = new Image();
+    img.referrerPolicy = 'no-referrer';
+    img.alt = '';
+    img.src = url;
+  }
+
+  /** 1ブラウザにつき1回だけ送るイベント */
+  function once(name) {
+    if (sent()[name]) return;
+    mark(name);
+    ping(name, true);
+  }
+
+  // --- 到達（ページ表示） -------------------------------------------------
+  ping('/' + PAGE, false);
+
+  // --- ファネル（ゲーム側のセーブを読むだけ） -----------------------------
+  if (PAGE !== 'play') return;
+
+  function readSave() {
+    try {
+      var raw = store.getItem(SAVE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function checkFunnel() {
+    var save = readSave();
+    if (!save || typeof save !== 'object') return;
+    if (typeof save.playerName === 'string' && save.playerName.length > 0) once('start');
+    var cleared = Array.isArray(save.clearedEpisodes) ? save.clearedEpisodes.length : 0;
+    if (cleared >= 1) once('ep1-clear');
+    if (cleared >= 2) once('ep2-clear');
+  }
+
+  checkFunnel();
+  setInterval(checkFunnel, 5000);
+})();
+
+</script>
+</body>
+</html>
