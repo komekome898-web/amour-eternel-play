@@ -1,0 +1,67 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>どの描き方が効かないか</title>
+<style>
+body{margin:0;padding:18px;background:#14111a;color:#ece5ee;
+ font:15px/1.7 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:#a396ac;font-size:12px;margin:0 0 16px}
+.row{border:1px solid #332b3a;border-radius:10px;padding:12px;margin:0 0 12px;background:#1c1724;
+ display:flex;align-items:center;gap:12px}
+.name{flex:1;font-size:13px}
+.res{font-size:17px;font-weight:700}
+.ok{color:#7fd6a0}.ng{color:#ff8a9c}
+.sw{width:56px;height:100px;border-radius:6px;background:#000;flex:none}
+#t3{aspect-ratio:9/16;width:56px;height:auto}
+.big{margin:16px 0 0;padding:16px;border-radius:10px;background:#241f2c;font-size:16px;font-weight:700}
+.ua{margin-top:14px;font-size:11px;color:#6d6472;word-break:break-all}
+</style></head><body>
+<h1>どの描き方が効かないか</h1>
+<p class="sub">ゲームが使っている組み方を、そのまま試します。開くだけで結果が出ます。</p>
+
+<div class="row"><div class="sw" id="t1"></div>
+ <div class="name">A　背景画像＋高さ指定<br><span style="color:#a396ac">いちばん基本の置き方</span></div>
+ <div class="res" id="r1">…</div></div>
+
+<div class="row"><div class="sw" id="t2" style="background-size:cover;background-position:center"></div>
+ <div class="name">B　背景を切り抜いて表示<br><span style="color:#a396ac">cover 指定</span></div>
+ <div class="res" id="r2">…</div></div>
+
+<div class="row"><div class="sw" id="t3"></div>
+ <div class="name">C　縦横比で高さを決める<br><span style="color:#a396ac">aspect-ratio（ゲームの立ち絵がこれ）</span></div>
+ <div class="res" id="r3">…</div></div>
+
+<div class="big" id="v">判定中…</div>
+<p class="ua" id="ua"></p>
+
+<script>
+var SRC="/amour-eternel-play/play/assets/assets/characters/leon.3cb63111062fbd754c42d34ce3dfa180.jpg";
+document.getElementById('ua').textContent=navigator.userAgent;
+var sup={ar:false,gap:false};
+try{sup.ar=CSS.supports('aspect-ratio','9/16');}catch(e){}
+try{sup.gap=CSS.supports('gap','10px');}catch(e){}
+var im=new Image();
+im.onload=function(){
+  ['t1','t2','t3'].forEach(function(id){document.getElementById(id).style.backgroundImage='url("'+SRC+'")';});
+  setTimeout(check,500);
+};
+im.onerror=function(){document.getElementById('v').textContent='画像が取れませんでした。';};
+im.src=SRC;
+function check(){
+  var res=[];
+  [['t1','r1'],['t2','r2'],['t3','r3']].forEach(function(p){
+    var e=document.getElementById(p[0]), o=document.getElementById(p[1]);
+    var r=e.getBoundingClientRect();
+    var painted=r.width>4&&r.height>4&&getComputedStyle(e).backgroundImage.indexOf('url')>=0;
+    res.push(painted);
+    o.textContent=painted?'出た':'出ない（高さ '+Math.round(r.height)+'）';
+    o.className='res '+(painted?'ok':'ng');
+  });
+  var v=document.getElementById('v');
+  if(res[0]&&res[1]&&res[2]) v.innerHTML='三つとも出ています。<br>→ 描き方は効いています。原因は別にあります。';
+  else if(!res[2]&&res[0])   v.innerHTML='<b>Cだけ出ていません。</b><br>→ 縦横比で高さを決める指定が、この端末で効いていません。<b>これが原因です。</b>'+(sup.ar?'':'（この端末は aspect-ratio に未対応）');
+  else                       v.innerHTML='背景画像そのものが出ていません。';
+  v.innerHTML+='<div style="font-size:12px;font-weight:400;color:#a396ac;margin-top:8px">aspect-ratio 対応: '+(sup.ar?'あり':'<b style="color:#ff8a9c">なし</b>')+'　/　gap 対応: '+(sup.gap?'あり':'<b style="color:#ff8a9c">なし</b>')+'</div>';
+}
+setTimeout(check,6000);
+</script></body></html>
