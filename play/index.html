@@ -37,6 +37,32 @@
     <div id="root"></div>
   <script src="/amour-eternel-play/play/_expo/static/js/web/index-a2b64cbee8f673044c73020940d36ab3.js" defer></script>
 
+<script>
+(function(){
+  function patch(){
+    var n=0;
+    for(var i=0;i<document.styleSheets.length;i++){
+      var rules; try{ rules=document.styleSheets[i].cssRules; }catch(e){ continue; }
+      if(!rules) continue;
+      for(var j=0;j<rules.length;j++){
+        var r=rules[j];
+        if(r.style && r.style.zIndex==='-1'){ r.style.zIndex='0'; n++; }
+      }
+    }
+    return n;
+  }
+  var total=0, tries=0;
+  var id=setInterval(function(){
+    total+=patch(); tries++;
+    if(total>0 || tries>20){
+      clearInterval(id);
+      if(total===0) console.warn('[ae] z-index:-1 の規則が見つからなかった。iOSで絵が消える対策が効いていない可能性がある。');
+    }
+  },120);
+  patch();
+})();
+</script>
+
 <style>
 #ae-notice{position:fixed;inset:0;z-index:2147483000;display:none;
 background:rgba(8,4,14,.72);backdrop-filter:blur(3px);
