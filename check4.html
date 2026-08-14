@@ -1,0 +1,38 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原因の確定</title>
+<style>
+body{margin:0;padding:16px;background:#14111a;color:#ece5ee;
+ font:15px/1.7 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+h1{font-size:17px;margin:0 0 4px}.s{color:#a396ac;font-size:12px;margin:0 0 14px}
+.card{border:1px solid #332b3a;border-radius:10px;padding:12px;margin:0 0 14px;background:#1c1724}
+.lab{font-size:15px;font-weight:700;margin:0 0 8px}
+.note{font-size:11px;color:#a396ac;margin:8px 0 0}
+/* ここからゲームとまったく同じ入れ子 */
+.outer{transform:translateZ(0);position:relative;width:150px;height:269px;margin:0 auto}
+.frame{position:relative;overflow:hidden;border-radius:20px;width:150px;height:269px;
+ background:rgba(120,80,160,.20)}
+.layer{position:absolute;top:0;left:0;width:150px;height:269px;display:flex;
+ background-size:contain;background-repeat:no-repeat;background-position:50% 50%}
+</style></head><body>
+<h1>原因の確定</h1>
+<p class="s">3つとも同じ画像・同じ入れ子です。<b>違いは z-index だけ</b>。見えたものを教えてください。</p>
+
+<div class="card"><p class="lab">① z-index: -1（＝いまのゲーム）</p>
+ <div class="outer"><div class="frame">
+  <div class="layer" style="z-index:-1;background-image:url('/amour-eternel-play/play/assets/assets/characters/leon.3cb63111062fbd754c42d34ce3dfa180.jpg')"></div>
+ </div></div>
+ <p class="note">これが出なければ、原因は z-index で確定</p></div>
+
+<div class="card"><p class="lab">② z-index: 0（＝私が入れた直し）</p>
+ <div class="outer"><div class="frame">
+  <div class="layer" style="z-index:0;background-image:url('/amour-eternel-play/play/assets/assets/characters/leon.3cb63111062fbd754c42d34ce3dfa180.jpg')"></div>
+ </div></div>
+ <p class="note">これが出れば、直し方は正しい</p></div>
+
+<div class="card"><p class="lab">③ z-index の指定なし</p>
+ <div class="outer"><div class="frame">
+  <div class="layer" style="background-image:url('/amour-eternel-play/play/assets/assets/characters/leon.3cb63111062fbd754c42d34ce3dfa180.jpg')"></div>
+ </div></div>
+ <p class="note">保険の案</p></div>
+</body></html>
