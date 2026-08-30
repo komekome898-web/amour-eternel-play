@@ -1,0 +1,80 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>626行の量産、確認</title>
+<style>
+:root{--bg:#14111a;--card:#1c1724;--line:#2f2937;--fg:#ece5ee;--dim:#a396ac;--gold:#ffd479;--acc:#c9a6e0}
+*{box-sizing:border-box}
+body{margin:0;padding:18px 14px 50px;background:var(--bg);color:var(--fg);
+ font:15px/1.75 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+.w{max-width:640px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:12.5px;margin:0 0 18px}
+h2{font-size:15px;margin:26px 0 9px;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px;margin:0 0 14px;font-size:12.5px}
+.box p{margin:0 0 6px}.box p:last-child{margin:0}
+.box b{color:var(--gold)}
+code{font-size:11.5px;color:var(--acc);font-family:ui-monospace,monospace}
+table{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+td,th{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--dim);font-weight:400}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 11px}
+.c h3{font-size:13px;margin:0 0 7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.b{background:var(--acc);color:#14111a;border-radius:5px;font-size:11.5px;padding:1px 7px;font-weight:700}
+.m{color:var(--dim);font-size:11px;font-weight:400;margin-left:auto;font-variant-numeric:tabular-nums}
+.n{margin:0 0 6px;font-size:11.5px;color:var(--dim)}
+.t{margin:0 0 8px;font-size:12.5px;background:#0f0d15;border:1px solid var(--line);
+ border-radius:7px;padding:9px 10px;line-height:1.75}
+audio{width:100%;height:34px}
+</style></head><body><div class="w">
+<h1>626行の量産、確認</h1>
+<p class="sub">全行できました。聴いていただきたいのは12本です。</p>
+
+<div class="box">
+<p><b>626行のうち625行が基準内、1行が外に残りました。</b>
+基準は「合格した見本から±25Hz」です。</p>
+<table>
+<tr><th>キャラ</th><th>行数</th><th>声の高さ</th><th>見本との差</th><th>基準内</th></tr>
+<tr><td>レオン</td><td>122</td><td>90Hz</td><td>9Hz</td><td>122/122</td></tr><tr><td>ルシアン</td><td>109</td><td>114Hz</td><td>14Hz</td><td>108/109</td></tr><tr><td>アレン</td><td>96</td><td>116Hz</td><td>6Hz</td><td>96/96</td></tr><tr><td>カイ</td><td>94</td><td>121Hz</td><td>8Hz</td><td>94/94</td></tr><tr><td>シオン</td><td>94</td><td>155Hz</td><td>8Hz</td><td>94/94</td></tr><tr><td>ハル</td><td>111</td><td>169Hz</td><td>14Hz</td><td>111/111</td></tr>
+</table>
+<p style="margin-top:8px">ルシアンだけ振れが大きく、最初の通しで14行が外れました
+（12行がルシアン）。引く回数を8本に増やして13行は入りました。</p>
+</div>
+
+<div class="box">
+<p><b>途中で道具の間違いを見つけて直しました。</b>
+名前を含む台詞は「その人がその名前を呼ぶ合格音声」を見本にしているのに、
+<b>差を測る基準はキャラの見本の高さのまま</b>でした。
+呼び方の音声は高さが違うことがあります（ハルの見本は173Hzですが
+「ルシアンさん。」は128Hz）。そのため<b>正しく作れた声を落としていました。</b>
+30通りの実測値を持たせて、使った見本の高さで測るよう直しました。</p>
+</div>
+
+<h2>1. 読み違いの残り4語（本編の台詞で）</h2>
+<div class="box">
+<p>前回の検査文は全部正しく読まれたので、辞書は18語で確定しました。
+その次に危ないと見た4語です。<b>作り物ではなく本編の台詞</b>で聴いてください。
+<b>間違って読まれた語だけ</b>教えていただければ、それだけ辞書に入れます。</p>
+</div>
+<section class="c"><h3><span class="b">奴</span>レオン<span class="m">83Hz・見本との差 16Hz</span></h3><p class="n">辞書はこう読む: やっこ</p><p class="t">一晩だけだ。誰にも言うな。……領主が供も連れずに屋敷を空けたと知られると、面倒な奴らが動く。</p><audio controls preload="none" src="/amour-eternel-play/full/event_trip_main_001.mp3"></audio></section><section class="c"><h3><span class="b">東棟</span>カイ<span class="m">115Hz・見本との差 4Hz</span></h3><p class="n">辞書はこう読む: とう</p><p class="t">……言っておくが、見回りは仕事のうちだ。館の外周を回るのは俺の役目だからな。……ついでに、東棟の下も通る。ついでだ。</p><audio controls preload="none" src="/amour-eternel-play/full/kai_ep02_021.mp3"></audio></section><section class="c"><h3><span class="b">一夜</span>ルシアン<span class="m">122Hz・見本との差 22Hz</span></h3><p class="n">辞書はこう読む: いちや</p><p class="t">十七年前の冬にも、灯が一夜だけ絶えました。僕は十でした。翌朝、朝食の席が一つ余っていて――僕だけが、一人足りないと分かった。分かったのに、名前が出てこなかったんです。……あれを僕は、数え損ねと呼んでいます。</p><audio controls preload="none" src="/amour-eternel-play/full/event_blackout_main_007.mp3"></audio></section><section class="c"><h3><span class="b">四半刻</span>ルシアン<span class="m">116Hz・見本との差 16Hz</span></h3><p class="n">辞書はこう読む: しはん</p><p class="t">――お待ちを。傘を。あと四半刻ほどで、雨脚がいちばん強くなります。……返しに来ていただければ、それで結構です。ええ。返すために、もう一度ここへ来ていただければ。</p><audio controls preload="none" src="/amour-eternel-play/full/lucian_ep01_014.mp3"></audio></section>
+
+<h2>2. 名前の抑揚（合格した呼び方から作った本編の台詞）</h2>
+<div class="box">
+<p>626行のうち<b>62行</b>が他のキャラの名前を含んでいました。
+その行は<b>あなたが合格を出した「その人がその名前を呼ぶ音声」</b>を見本にしています。
+抑揚が引き継がれているか確かめてください。</p>
+</div>
+<section class="c"><h3><span class="b">レオン→アレン</span>レオン<span class="m">97Hz・見本との差 2Hz</span></h3><p class="t">アレン。お前が今夜ここへ来た理由を、俺が当ててやろうか。……盗みに来たのではない。返しに来たのだろう。</p><audio controls preload="none" src="/amour-eternel-play/full/rel_leon_allen_01_003.mp3"></audio></section><section class="c"><h3><span class="b">ルシアン→アレン</span>ルシアン<span class="m">110Hz・見本との差 10Hz</span></h3><p class="t">……アレン。人の話に窓から割り込むのは、感心しませんよ。……ええ、今日はここまでにいたしましょう。続きは、また。</p><audio controls preload="none" src="/amour-eternel-play/full/lucian_ep01_009.mp3"></audio></section><section class="c"><h3><span class="b">ハル→カイ</span>ハル<span class="m">156Hz・見本との差 17Hz</span></h3><p class="t">ずっと、そばにいていい？　……って、前は訊いてた。今日は訊かない。訊くと、あんたが断れなくなるって、この前カイに言われた。……あいつ、余計なこと言うんだよ。余計なこと言われて、正しかったから腹立つ。</p><audio controls preload="none" src="/amour-eternel-play/full/haru_ep04_008.mp3"></audio></section><section class="c"><h3><span class="b">シオン→ハル</span>シオン<span class="m">159Hz・見本との差 0Hz</span></h3><p class="t">……うわあ。ハル、これ。これはさすがに、僕でも怒っていい範囲だと思うんだけど。どうかな。</p><audio controls preload="none" src="/amour-eternel-play/full/rel_haru_shion_01_001.mp3"></audio></section><section class="c"><h3><span class="b">ルシアン→カイ</span>ルシアン<span class="m">110Hz・見本との差 10Hz</span></h3><p class="t">――カイ。ひとつだけ、記録に残さず訊きます。あなたは、見られるのが嫌なのですか。それとも、見られて何も起きないことが、嫌なのですか。</p><audio controls preload="none" src="/amour-eternel-play/full/rel_lucian_kai_01_011.mp3"></audio></section><section class="c"><h3><span class="b">レオン→ルシアン</span>レオン<span class="m">98Hz・見本との差 1Hz</span></h3><p class="t">答えろ、ルシアン。……命令だ。俺は、この館で二度同じことを言わん。</p><audio controls preload="none" src="/amour-eternel-play/full/rel_leon_lucian_01_007.mp3"></audio></section><section class="c"><h3><span class="b">シオン→レオン</span>シオン<span class="m">141Hz・見本との差 18Hz</span></h3><p class="t">ふふ。二人とも、あとで薬草茶ね。……あ、レオンも。手のひら、擦り剥いてるでしょう。隠しても分かるよ。僕、そういうのだけは得意なんだ。</p><audio controls preload="none" src="/amour-eternel-play/full/event_trip_main_012.mp3"></audio></section>
+
+<h2>3. 基準の外に残った1行</h2>
+<div class="box">
+<p>12本引いても基準の外（差27Hz・上限25Hz）でした。<b>2Hzの超過です。</b>
+機械では落とす側ですが、<b>聴いて許容できるかはあなたの判断です。</b>
+駄目なら台詞を切って作り直します。</p>
+</div>
+<section class="c"><h3><span class="b">基準の外（27Hz）</span>ルシアン<span class="m">136Hz・見本との差 27Hz</span></h3><p class="t">……ハル。あなたは、僕がこれまで会った誰よりも、遠回りをしない人ですね。……羨ましい、と申し上げるべきでしょうか。いえ、訂正します。――少しばかり、腹立たしい。</p><audio controls preload="none" src="/amour-eternel-play/full/rel_haru_lucian_01_008.mp3"></audio></section>
+
+<div class="box" style="margin-top:20px">
+<p><b>まだ本編には入れていません。</b>合格が出てから
+<code>assets/voice/</code> を差し替えます。</p>
+</div>
+</div></body></html>
