@@ -1,0 +1,107 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>読みの確認と、声が変わっていないかの確認</title>
+<style>
+body{margin:0;padding:16px 14px 40px;background:#14111a;color:#ece5ee;
+ font:15px/1.7 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+h1{font-size:18px;margin:0 0 4px}
+.s{color:#a396ac;font-size:12px;margin:0 0 14px}
+.box{background:#1c1724;border:1px solid #6d5c7d;border-radius:10px;padding:13px;margin:0 0 18px;font-size:12.5px}
+.box p{margin:0 0 5px}.box b{color:#ffd479}
+.c{border-top:1px solid #2f2937;padding:15px 0}
+.head{display:flex;gap:12px;align-items:center;margin:0 0 8px}
+.head img{width:52px;height:52px;object-fit:cover;object-position:50% 12%;border-radius:8px;flex:none}
+.nm{margin:0;font-weight:700;font-size:15px}
+.hz{margin:2px 0 0;font-size:11px;color:#7fd6a0}
+.w{margin:0 0 8px;font-size:12px;color:#c9a6e0}
+.one{background:#1c1724;border:1px solid #332b3a;border-radius:10px;padding:10px 12px;margin:0 0 8px}
+.one.seed{opacity:.8}
+.t{margin:0 0 4px;font-weight:700;font-size:12px;color:#c9a6e0}
+.one.seed .t{color:#8f86a0}
+.ln{margin:0 0 7px;font-size:12px;color:#a396ac;line-height:1.55}
+audio{width:100%;height:36px}
+</style></head><body>
+<h1>読みの確認と、声が変わっていないかの確認</h1>
+<p class="s">上が今回つくった台詞、下が合格した見本。同じ人に聴こえるかも見てください。</p>
+<div class="box">
+<p><b>626行を通して、読み違いそうな語を12語まで絞りました。</b></p>
+<p>形態素解析で「辞書が読みを割っている語」を機械で抽出し、実際の使われ方を全件見て確定させています。</p>
+<p><b>登録しなかったものが1つあります。</b>「通っ」は<b>とおる</b>と<b>かよう</b>が混在していて、
+一律置換すると壊れます。文脈ごとの判断が要るので、辞書には入れていません。</p>
+<p>今回の6行は、登録した語を含む台詞から選びました。<b>すべて合格した見本から作っています。</b></p>
+</div>
+
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/leon.jpg" alt="">
+ <div><p class="nm">レオン</p><p class="hz">新 91Hz ／ 見本 99Hz ／ 差 8Hz</p></div></div>
+ <p class="w">確かめる語: <b>灯り</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">置いて、下がれ。……いや。待て。そこに座っていろ。人がいるほうが灯りの油の減りが遅い。ちょうどいい。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/leon_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">かんちがい するなよ。俺は孤独ではない。孤独というのは、誰かにいてほしいと思う人間が使う言葉だ。、俺は、思わん。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/leon_seed.wav"></audio></div>
+</section>
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/lucian.jpg" alt="">
+ <div><p class="nm">ルシアン</p><p class="hz">新 115Hz ／ 見本 100Hz ／ 差 15Hz</p></div></div>
+ <p class="w">確かめる語: <b>来る</b>／<b>灯り</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">……アレン。次に僕の部屋へ来るときは、窓ではなく扉から。灯りを点けて、待っています。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/lucian_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">どうぞ、そのままで。じゅうたんはいずれかえます。あなたが慌てて片足で立っているほうが、僕には見ていられません。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/lucian_seed.wav"></audio></div>
+</section>
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/haru.jpg" alt="">
+ <div><p class="nm">ハル</p><p class="hz">新 164Hz ／ 見本 173Hz ／ 差 9Hz</p></div></div>
+ <p class="w">確かめる語: <b>行っ</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">……行くんだ。うん、行っていいよ。行っていいに決まってる。……ねえ、何話したか、あとで俺にも教えて？　全部じゃなくていいから。ちょっとでいい</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/haru_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">冷たっ！　お前なあ、剣士に水かけるってのはな、決闘の申し込みなんだぞ！　知らないのか！</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/haru_seed.wav"></audio></div>
+</section>
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/kai.jpg" alt="">
+ <div><p class="nm">カイ</p><p class="hz">新 105Hz ／ 見本 119Hz ／ 差 14Hz</p></div></div>
+ <p class="w">確かめる語: <b>入れ</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">……見るな。犬の寝相を勘定に入れると、廊下の幅が合わなくなる。……それだけだ。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/kai_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">次に会うときは、こっち側とは限らない。仕事で、向かい合うかもしれない。、そのときは、俺が先に殺す。恨むな。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/kai_seed.wav"></audio></div>
+</section>
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/shion.jpg" alt="">
+ <div><p class="nm">シオン</p><p class="hz">新 160Hz ／ 見本 159Hz ／ 差 1Hz</p></div></div>
+ <p class="w">確かめる語: <b>灯り</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">……あ。おかえり、じゃないな。いらっしゃい。ごめんね、灯りは点けないでもらえる？　この人、明るいところだと座ってくれないんだ。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/shion_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">あ。ごめん、無意識だった。、ううん、嘘。ちょっとだけ、意識してた。、もう少しだけ、いてくれる？</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/shion_seed.wav"></audio></div>
+</section>
+<section class="c">
+ <div class="head"><img src="/amour-eternel-play/listen5/allen.jpg" alt="">
+ <div><p class="nm">アレン</p><p class="hz">新 113Hz ／ 見本 113Hz ／ 差 0Hz</p></div></div>
+ <p class="w">確かめる語: <b>暗号</b></p>
+ <div class="one"><p class="t">今回つくった台詞</p>
+  <p class="ln">行かねえよ。……行くとしても、あんたが眠ってるときにする。寝顔なら、暗号じゃないだろ。</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/allen_new.wav"></audio></div>
+ <div class="one seed"><p class="t">合格した見本（比較用）</p>
+  <p class="ln">暗号かよ。趣味わる。なあ先生、いっこだけ教えてくれよ。あんた、あの子のこと、いつから見てた？</p>
+  <audio controls preload="none" src="/amour-eternel-play/listen5/allen_seed.wav"></audio></div>
+</section>
+<div class="box" style="margin-top:22px">
+<p><b>登録した12語</b></p>
+<p>替えます→かえます／絨毯→じゅうたん／勘違いするなよ→かんちがい するなよ／暗号→あんごう／
+来る→くる／入れ→いれ／行っ→いっ／薬師→くすし／出口→でぐち／灯り→あかり／立て→たて／三代前→さんだいまえ</p>
+<p><b>「薬師」は判断が要りました。</b>やくし（如来）ではなく<b>くすし</b>（薬を扱う人）を採っています。
+シオンの職業なので、違っていれば直します。</p>
+</div>
+</body></html>
