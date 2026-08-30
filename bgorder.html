@@ -1,0 +1,172 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>背景画像の発注書</title>
+<style>
+:root{--bg:#14111a;--card:#1c1724;--line:#2f2937;--fg:#ece5ee;--dim:#a396ac;--gold:#ffd479;--acc:#c9a6e0}
+*{box-sizing:border-box}
+body{margin:0;padding:18px 14px 56px;background:var(--bg);color:var(--fg);
+ font:15px/1.75 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+.w{max-width:660px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:12.5px;margin:0 0 18px}
+h2{font-size:15px;margin:26px 0 9px;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px;margin:0 0 14px;font-size:12.5px}
+.box p{margin:0 0 6px}.box p:last-child{margin:0}
+.box b{color:var(--gold)}
+.box code{font-size:11.5px;color:var(--acc);font-family:ui-monospace,monospace}
+ol.rules{margin:6px 0 0;padding-left:1.25em;font-size:12.5px}
+ol.rules li{margin:0 0 5px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+td,th{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--dim);font-weight:400;white-space:nowrap}
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 14px}
+figure{margin:0}figure img{width:100%;border-radius:7px;display:block;background:#0d0b12}
+figcaption{font-size:11px;color:var(--dim);margin:4px 0 0}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 11px}
+.c h3{font-size:14px;margin:0 0 6px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.k{background:var(--acc);color:#14111a;border-radius:5px;font-size:11px;padding:1px 6px;font-weight:700}
+.c code{font-size:11px;color:var(--dim);font-family:ui-monospace,monospace}
+.n{margin:0 0 7px;font-size:12px;color:var(--gold)}
+.p{font-size:11.5px;line-height:1.6;color:var(--dim);background:#0f0d15;
+ border:1px solid var(--line);border-radius:7px;padding:9px 10px;
+ white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,SFMono-Regular,monospace}
+.b{margin:8px 0 0;background:var(--acc);color:#14111a;border:0;border-radius:7px;
+ padding:7px 13px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.b.ok{background:#7fd6a2}
+</style></head><body><div class="w">
+<h1>背景画像の発注書</h1>
+<p class="sub">15枚。各カードの「コピー」を押して、そのまま ChatGPT に貼ってください。</p>
+<div class="box">
+<p><b>なぜ要るか。</b>本編のノード 3,112 のうち <b>1,956（63%）がナレーション</b>で、そこには喋っている人がいません。それなのに画面は立ち絵が全面に出たままなので、<b>地の文をキャラが喋っていると読めます。</b>指摘のとおりです。</p>
+<p>データ側には既に <code>background</code> という欄があり14か所の名前が入っていますが、<b>画像が1枚もありません。</b>コードはその名前から暗い色を作っているだけでした。</p>
+</div>
+<h2>枚数を15に抑えた理由</h2>
+<div class="box">
+<p>データの値は <code>corridor_night</code> <code>apothecary_dawn</code> のように<b>場所＋時刻</b>で書かれていて、そのまま数えると20種を超えます。</p>
+<p><b>時刻はこちらの色補正で作れます。</b>夜・夕・明け方・雨は同じ絵に色を掛けるだけで足ります。<b>場所の数だけ描けば足ります。</b>それが15枚です。</p>
+</div>
+<h2>共通の指定</h2>
+<div class="box">
+<table>
+<tr><th>比率</th><td><b>2:3 の縦</b>（1024×1536）。スマホ全画面で使います</td></tr>
+<tr><th>形式</th><td>JPEG か PNG。こちらで900×1350に落とします（端末のメモリ上限のため）</td></tr>
+</table>
+<ol class="rules">
+<li><b>人を入れない。</b>背景だけ。立ち絵が上に重なる場面もあります</li>
+<li><b>画面の下3分の1に主役を置かない。</b>文章枠が乗って隠れます</li>
+<li><b>時刻は中間で描く。</b>最初から真っ暗だと、明るい時間帯が作れません</li>
+</ol>
+</div>
+<h2>画風の参照（この4枚を一緒に添付してください）</h2>
+<p class="sub">同じ館の中なので、既にある CG を参照に付けると画風が揃います。長押しで保存できます。</p>
+<div class="refs">
+<figure><img src="/amour-eternel-play/bgorder/rel_leon_lucian_01_greenhouse.jpg" alt=""><figcaption>温室・硝子・光の入り方</figcaption></figure><figure><img src="/amour-eternel-play/bgorder/rel_haru_kai_01_kitchen.jpg" alt=""><figcaption>厨房・石と銅の質感</figcaption></figure><figure><img src="/amour-eternel-play/bgorder/pov_leon_01_bookshelf.jpg" alt=""><figcaption>書架・木の色・陰影</figcaption></figure><figure><img src="/amour-eternel-play/bgorder/allen_ep02_roof.jpg" alt=""><figcaption>屋根・夜空・館の外観</figcaption></figure></div>
+<h2>15枚</h2>
+
+<article class="c">
+ <h3><span class="k">1</span>玄関広間<code>entrance_hall.jpg</code></h3>
+ <p class="n">第1話の最初の場面。誰もいないのに燭台が全部点いているという不気味さが要る。</p>
+ <div class="p" id="p1">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered grand entrance hall of a western mansion, empty, checkered stone floor, a wide staircase splitting left and right at the back, tall dark wooden doors, every wall candelabra lit with warm flame although no one is there, late afternoon light through a high window, dust in the air, faintly ominous stillness  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p1">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">2</span>廊下<code>corridor.jpg</code></h3>
+ <p class="n">本編で最も出る場所（本文中 116 回）。長さと、扉の連なりが要る。</p>
+ <div class="p" id="p2">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered long corridor of a western mansion, empty, dark polished wood floor, a row of identical tall doors along one side, tall windows along the other, oil lamps in wall sconces, deep perspective vanishing toward the far end, heavy curtains, patterned runner carpet  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p2">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">3</span>図書室<code>library.jpg</code></h3>
+ <p class="n">天井まで届く書架。逆光の窓。</p>
+ <div class="p" id="p3">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered mansion library, empty, floor-to-ceiling dark wood bookshelves, a rolling ladder, a tall arched window at the back throwing strong backlight between the shelves, reading table with an oil lamp, stacked leather books, motes of dust in the light beam  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p3">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">4</span>書斎<code>study.jpg</code></h3>
+ <p class="n">領主レオンの部屋。重さと冷たさ。</p>
+ <div class="p" id="p4">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered lord&#x27;s private study, empty, massive dark wooden desk with papers and a wax seal, a lit fireplace on one side, deep green leather chair, heavy drapes half drawn, framed map on the wall, cold and orderly, low warm firelight against cool shadow  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p4">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">5</span>寝室<code>bedroom.jpg</code></h3>
+ <p class="n">主人公および各人の私室。生々しくしない。</p>
+ <div class="p" id="p5">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered mansion bedroom, empty, canopy bed with heavy drapery, bedside table with an oil lamp and a book, tall window with sheer curtain, wooden floor with a rug, restrained and elegant, quiet  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p5">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">6</span>食堂<code>dining.jpg</code></h3>
+ <p class="n">椅子は7脚。1脚空いている構図が物語に効く。</p>
+ <div class="p" id="p6">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered mansion dining room, empty, long dark wooden table with seven chairs, one chair slightly pulled out, candelabra down the middle of the table, tall windows behind, sideboard with porcelain, high ceiling  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p6">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">7</span>厨房<code>kitchen.jpg</code></h3>
+ <p class="n">ハルとカイの場所。生活の熱がある唯一の部屋。</p>
+ <div class="p" id="p7">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered mansion kitchen, empty, stone walls and a large hearth, hanging copper pots, a heavy wooden worktable with scattered utensils, sacks and jars on shelves, steam rising from a kettle, warm and lived-in, morning light from a small high window  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p7">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">8</span>薬室<code>apothecary.jpg</code></h3>
+ <p class="n">シオンの場所。棚と、吊るした乾燥草。</p>
+ <div class="p" id="p8">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered apothecary room, empty, wall of small labeled drawers, glass bottles and jars on shelves, bundles of dried herbs hanging from the ceiling beams, mortar and pestle on a worn wooden table, a single window, quiet and orderly, faint green and amber tones  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p8">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">9</span>温室<code>greenhouse.jpg</code></h3>
+ <p class="n">ルシアンとレオンの場面で使う。硝子屋根が要る。</p>
+ <div class="p" id="p9">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered Victorian glass greenhouse attached to a mansion, empty, iron frame and glass roof, dense green plants and potted flowers on staging benches, a narrow walkway down the middle, water droplets on the glass, diffused light coming through the glass roof, humid air  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p9">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">10</span>庭園<code>garden.jpg</code></h3>
+ <div class="p" id="p10">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered mansion garden at ground level, empty, trimmed hedges, a gravel path curving away, stone garden lamps not yet lit, flower beds, a stone bench, the mansion wall visible at one side, overcast soft light  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p10">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">11</span>中庭<code>courtyard.jpg</code></h3>
+ <p class="n">井戸があること（本文に出る）。</p>
+ <div class="p" id="p11">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered enclosed stone courtyard of a mansion, empty, stone paving, an old stone well in the middle, arched cloister walkway around the edges, ivy on the walls, a single tree, still air  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p11">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">12</span>鍛錬場<code>training_yard.jpg</code></h3>
+ <p class="n">ハルとレオンの場所。</p>
+ <div class="p" id="p12">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered outdoor training yard beside a mansion, empty, packed earth ground, a rack of wooden practice swords, straw target dummies, a low stone wall, a water bucket and ladle, early morning light, mist near the ground  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p12">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">13</span>屋根の上<code>rooftop.jpg</code></h3>
+ <p class="n">アレンの場所。館を見下ろす高さが要る。</p>
+ <div class="p" id="p13">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered on the sloped roof of a large mansion at night, empty, dark slate tiles, stone chimneys, a low parapet, the grounds and the dark forest spread out far below, a wide star-filled sky, a distant lit window  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p13">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">14</span>バルコニー<code>balcony.jpg</code></h3>
+ <div class="p" id="p14">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered stone balcony of a mansion, empty, carved balustrade, tall glass doors open behind with a curtain lifting in the wind, the dark garden below, night sky, an unlit lantern on the rail  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p14">この文をコピー</button>
+</article>
+<article class="c">
+ <h3><span class="k">15</span>油庫<code>oilstore.jpg</code></h3>
+ <p class="n">この作品の謎の中心。「油の減り」が繰り返し語られる部屋。</p>
+ <div class="p" id="p15">masterpiece, best quality, highly detailed anime background art, Japanese otome game background, no people, empty scene, soft cel shading with painterly rendering, dramatic directional light, dark romantic atmosphere, desaturated jewel-tone palette, deep purple-navy shadows, warm oil-lamp light, 19th-century European western-style mansion, cinematic composition, vertical 2:3, focal point in the upper two thirds, lower third kept simple and uncluttered small storeroom for lamp oil in a mansion cellar, empty, rows of ceramic oil jars and metal cans on wooden shelves, a funnel and measuring jug, a ledger book open on a crate, a single oil lamp as the only light source, low ceiling, close and airless  --- Do not include: people, person, human figure, character, hands, face, text, watermark, signature, logo, UI, oversaturated colors, flat lighting, modern electric lighting, photorealistic, 3D render, chibi, western cartoon style</div>
+ <button class="b" data-t="p15">この文をコピー</button>
+</article><div class="box" style="margin-top:18px">
+<p><b>受け取ったあと、こちらでやること。</b></p>
+<ol class="rules">
+<li>900×1350に落とす（端末の画像メモリ上限。前に画像が出なくなった原因がこれ）</li>
+<li><code>assets/bg/</code> に置いて配線する</li>
+<li>夜・夕・明け方・雨の色補正をコード側で作る</li>
+<li><b>ナレーション中は背景を主役にし、立ち絵を退かせる</b></li>
+<li>70エピソードに場所を割り当てる（いまは68ノードにしか付いていません）</li>
+</ol>
+</div>
+</div>
+<script>
+document.querySelectorAll('.b').forEach(function(b){b.addEventListener('click',async function(){
+  var t=document.getElementById(b.dataset.t).textContent;
+  try{await navigator.clipboard.writeText(t)}
+  catch(e){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+  var o=b.textContent;b.textContent='コピーしました';b.classList.add('ok');
+  setTimeout(function(){b.textContent=o;b.classList.remove('ok')},1400);
+})});
+</script></body></html>
