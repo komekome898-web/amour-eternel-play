@@ -1,0 +1,57 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>作り直したボイス</title>
+<style>
+:root{--bg:#14111a;--card:#1c1724;--line:#2f2937;--fg:#ece5ee;--dim:#a396ac;--gold:#ffd479;--acc:#c9a6e0}
+*{box-sizing:border-box}
+body{margin:0;padding:18px 14px 50px;background:var(--bg);color:var(--fg);
+ font:15px/1.75 -apple-system,"Hiragino Sans",system-ui,sans-serif}
+.w{max-width:640px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:12.5px;margin:0 0 18px}
+h2{font-size:15px;margin:26px 0 9px;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px;margin:0 0 14px;font-size:12.5px}
+.box p{margin:0 0 6px}.box p:last-child{margin:0}
+.box b{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+td,th{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--dim);font-weight:400}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 11px}
+.c h3{font-size:13px;margin:0 0 7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.b{background:var(--acc);color:#14111a;border-radius:5px;font-size:11.5px;padding:1px 7px;font-weight:700}
+.m{color:var(--dim);font-size:11px;font-weight:400;margin-left:auto;font-variant-numeric:tabular-nums}
+.t{margin:0 0 8px;font-size:12.5px;background:#0f0d15;border:1px solid var(--line);
+ border-radius:7px;padding:9px 10px;line-height:1.75}
+audio{width:100%;height:34px}
+</style></head><body><div class="w">
+<h1>作り直したボイス</h1>
+<p class="sub">624 行できた時点。<b>聴いていただくのは 34 本だけです。</b></p>
+
+<div class="box">
+<p>選ぶ基準を<b>声の高さから声色に変えました</b>。しきい値 0.17 は
+あなたが8本聴いて決めた値です（4番0.159=許容／5番0.192=別人）。</p>
+<table>
+<tr><th>キャラ</th><th>行数</th><th>声色の中央</th><th>基準外</th></tr>
+<tr><td>レオン</td><td>122</td><td>0.019</td><td>0</td></tr><tr><td>ルシアン</td><td>109</td><td>0.156</td><td>37</td></tr><tr><td>ハル</td><td>111</td><td>0.036</td><td>0</td></tr><tr><td>カイ</td><td>94</td><td>0.021</td><td>0</td></tr><tr><td>シオン</td><td>92</td><td>0.100</td><td>15</td></tr><tr><td>アレン</td><td>96</td><td>0.138</td><td>19</td></tr>
+</table>
+<p style="margin-top:8px">基準外は 71 行。<b>この行はもう一周引き直します。</b></p>
+</div>
+
+<h2>1. 六人の、いちばん良い1本といちばん悪い1本</h2>
+<div class="box"><p><b>「直ったか」と「どこまで悪いか」を一度に。</b>
+悪い方が許容できるなら、その人はもう触りません。</p></div>
+<section class="c"><h3><span class="b">いちばん良い</span>レオン<span class="m">声色 0.003 ／ 93Hz</span></h3><p class="t">三千は超えたな。……その振り方では、あと一万振っても俺には届かん。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_leon_haru_02_001.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>レオン<span class="m">声色 0.162 ／ 113Hz</span></h3><p class="t">……ルシアン。次にその話をするときは、酒を持ってこい。俺の蔵から選んでいい。――十七年ぶんだ。一杯では足りん。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_leon_lucian_01_009.mp3"></audio></section><section class="c"><h3><span class="b">いちばん良い</span>ルシアン<span class="m">声色 0.022 ／ 127Hz</span></h3><p class="t">……ハル。あなたは、僕がこれまで会った誰よりも、遠回りをしない人ですね。……羨ましい、と申し上げるべきでしょうか。いえ、訂正します。――少しばかり、腹立たしい。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_haru_lucian_01_008.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>ルシアン<span class="m">声色 0.587 ★基準外 ／ 99Hz</span></h3><p class="t">……戻らなかったものは。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_lucian_shion_01_023.mp3"></audio></section><section class="c"><h3><span class="b">いちばん良い</span>ハル<span class="m">声色 0.009 ／ 162Hz</span></h3><p class="t">……間に合った。よかった。――言わないよ。言ったら叶わないんだろ。でも、あのさ。……俺の願い事、たぶん、ここにいる全員が入ってる。</p><audio controls preload="none" src="/amour-eternel-play/v3/event_trip_main_013.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>ハル<span class="m">声色 0.168 ／ 155Hz</span></h3><p class="t">……レオン様。今の、違います。あれは灯守の持ち物じゃない。灯守が持ってるだけです。持ち物って言い方をすると、あの人が『じゃあ持ち主に返せ』って言えるようになる。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_leon_haru_04_h02.mp3"></audio></section><section class="c"><h3><span class="b">いちばん良い</span>カイ<span class="m">声色 0.009 ／ 122Hz</span></h3><p class="t">届かせる気があんのか、あんた。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_lucian_kai_02_011.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>カイ<span class="m">声色 0.110 ／ 104Hz</span></h3><p class="t">……犬。お前、それ、いつから気づいてた。……三月まえ。……ちっ。同じかよ。</p><audio controls preload="none" src="/amour-eternel-play/v3/kai_ep03_008.mp3"></audio></section><section class="c"><h3><span class="b">いちばん良い</span>シオン<span class="m">声色 0.022 ／ 168Hz</span></h3><p class="t">……あ。ごめん、無意識だった。……ううん、嘘。ちょっとだけ、意識してた。……もう少しだけ、いてくれる？</p><audio controls preload="none" src="/amour-eternel-play/v3/shion_ep01_010.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>シオン<span class="m">声色 0.329 ★基準外 ／ 174Hz</span></h3><p class="t">うん、言わないよ。……でもね、ハル。ひとつだけ覚えといて。強いっていうのはね、痛くないことじゃないんだ。痛いって言える場所を、ちゃんと持ってることだよ。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_haru_shion_01_009.mp3"></audio></section><section class="c"><h3><span class="b">いちばん良い</span>アレン<span class="m">声色 0.023 ／ 108Hz</span></h3><p class="t">……あのさ。前に俺、あんたに『俺と逃げて』って言ったろ。あれ、なんでだと思う？</p><audio controls preload="none" src="/amour-eternel-play/v3/allen_ep02_006.mp3"></audio></section><section class="c"><h3><span class="b">いちばん悪い</span>アレン<span class="m">声色 0.430 ★基準外 ／ 116Hz</span></h3><p class="t">…………痛え。</p><audio controls preload="none" src="/amour-eternel-play/v3/rel_shion_allen_01_007.mp3"></audio></section>
+
+<h2>2. 辞書で直した語</h2>
+<div class="box"><p>指摘いただいた語を含む行です。<b>まだ読み違えている語だけ</b>教えてください。</p></div>
+<section class="c"><h3><span class="b">東棟</span>カイ<span class="m">声色 0.017 ／ 119Hz</span></h3><p class="t">……言っておくが、見回りは仕事のうちだ。館の外周を回るのは俺の役目だからな。……ついでに、東棟の下も通る。ついでだ。</p><audio controls preload="none" src="/amour-eternel-play/v3/kai_ep02_021.mp3"></audio></section><section class="c"><h3><span class="b">四半刻</span>ルシアン<span class="m">声色 0.081 ／ 116Hz</span></h3><p class="t">――お待ちを。傘を。あと四半刻ほどで、雨脚がいちばん強くなります。……返しに来ていただければ、それで結構です。ええ。返すために、もう一度ここへ来ていただければ。</p><audio controls preload="none" src="/amour-eternel-play/v3/lucian_ep01_014.mp3"></audio></section><section class="c"><h3><span class="b">雨脚</span>ルシアン<span class="m">声色 0.081 ／ 116Hz</span></h3><p class="t">――お待ちを。傘を。あと四半刻ほどで、雨脚がいちばん強くなります。……返しに来ていただければ、それで結構です。ええ。返すために、もう一度ここへ来ていただければ。</p><audio controls preload="none" src="/amour-eternel-play/v3/lucian_ep01_014.mp3"></audio></section><section class="c"><h3><span class="b">訊</span>ルシアン<span class="m">声色 0.168 ／ 126Hz</span></h3><p class="t">――失礼。そこの方。……いえ、お名前は結構です。訊いても、たぶん僕は書き留められない。ですが一つだけ申し上げます。今朝の食卓には、匙が七つ出ています。六人ぶんの朝食に、匙が七つ。……座ってくだ</p><audio controls preload="none" src="/amour-eternel-play/v3/event_blackout_main_010.mp3"></audio></section><section class="c"><h3><span class="b">擦り剥</span>シオン<span class="m">声色 0.106 ／ 140Hz</span></h3><p class="t">ふふ。二人とも、あとで薬草茶ね。……あ、レオンも。手のひら、擦り剥いてるでしょう。隠しても分かるよ。僕、そういうのだけは得意なんだ。</p><audio controls preload="none" src="/amour-eternel-play/v3/event_trip_main_012.mp3"></audio></section><section class="c"><h3><span class="b">供も</span>レオン<span class="m">声色 0.035 ／ 91Hz</span></h3><p class="t">一晩だけだ。誰にも言うな。……領主が供も連れずに屋敷を空けたと知られると、面倒な奴らが動く。</p><audio controls preload="none" src="/amour-eternel-play/v3/event_trip_main_001.mp3"></audio></section><section class="c"><h3><span class="b">掛け金</span>アレン<span class="m">声色 0.159 ／ 111Hz</span></h3><p class="t">あ、それとさ。この窓の掛け金、壊れてるぜ。……俺が壊した。直しといてやろうか？　――なんてな。直さねえよ。</p><audio controls preload="none" src="/amour-eternel-play/v3/allen_ep01_012.mp3"></audio></section><section class="c"><h3><span class="b">埃</span>ルシアン<span class="m">声色 0.163 ／ 114Hz</span></h3><p class="t">……ええ、存じています。あなたは入っていない。廊下側の埃だけが乱れていて、敷居から内側は綺麗なままでした。……あなたは三年あの扉に通って、一度も入らなかった。それが分かる程度には、僕もあなたを</p><audio controls preload="none" src="/amour-eternel-play/v3/allen_ep03_009.mp3"></audio></section><section class="c"><h3><span class="b">無かっ</span>アレン<span class="m">声色 0.121 ／ 113Hz</span></h3><p class="t">――ああ、そうだ。出口の話。俺、この館の出口は七本だと思ってる。ずっとな。……今の部屋、出口が一つも無かっただろ。窓は内側から閉まってて、扉は一枚きり。……なのに俺の頭は、あそこを七本目に入れ</p><audio controls preload="none" src="/amour-eternel-play/v3/allen_ep03_007.mp3"></audio></section>
+
+<h2>3. 名前の抑揚</h2>
+<div class="box"><p>他キャラの名前を含む行は、<b>合格した呼び方の音声</b>を見本にして作っています。</p></div>
+<section class="c"><h3><span class="b">シオン→レオン</span>シオン<span class="m">声色 0.106 ／ 140Hz</span></h3><p class="t">ふふ。二人とも、あとで薬草茶ね。……あ、レオンも。手のひら、擦り剥いてるでしょう。隠しても分かるよ。僕、そういうのだけは得意なんだ。</p><audio controls preload="none" src="/amour-eternel-play/v3/event_trip_main_012.mp3"></audio></section><section class="c"><h3><span class="b">シオン→ルシアン</span>シオン<span class="m">声色 0.182 ★基準外 ／ 159Hz</span></h3><p class="t">ルシアンは、飲まないの？　……ふふ。君、いつもそうだね。輪の中に入らないで、輪が壊れないか見てる。</p><audio controls preload="none" src="/amour-eternel-play/v3/event_trip_pov_lucian_001.mp3"></audio></section><section class="c"><h3><span class="b">ハル→ルシアン</span>ハル<span class="m">声色 0.090 ／ 152Hz</span></h3><p class="t">今日ね、俺、ルシアンさんが悪い人に見えたんだ。……ぜんぜん悪い人じゃないのに。むしろ親切だし、頭いいし。……なのに、あんたと喋ってるとこ見たら、なんか。……俺、変だろ。</p><audio controls preload="none" src="/amour-eternel-play/v3/haru_ep02_005.mp3"></audio></section><section class="c"><h3><span class="b">ハル→レオン</span>ハル<span class="m">声色 0.126 ／ 166Hz</span></h3><p class="t">…………待って。待って待って。じゃあ俺、あんたがレオン様と喋ってるときも、カイと喋ってるときも、シオンと喋ってるときも、ずっと、これ？　……えっ。俺、ずっとやきもち焼いてたの？</p><audio controls preload="none" src="/amour-eternel-play/v3/haru_ep02_006.mp3"></audio></section><section class="c"><h3><span class="b">ハル→シオン</span>ハル<span class="m">声色 0.103 ／ 176Hz</span></h3><p class="t">……あ。これ、違うんだ。シオンには言わないで。怒られるから。……ってか、痛くないんだよ、ほんとに。ここが変な感じのほうが、ずっと痛いから。……手のほうが、まし。</p><audio controls preload="none" src="/amour-eternel-play/v3/haru_ep02_020.mp3"></audio></section><section class="c"><h3><span class="b">ハル→カイ</span>ハル<span class="m">声色 0.069 ／ 179Hz</span></h3><p class="t">ずっと、そばにいていい？　……って、前は訊いてた。今日は訊かない。訊くと、あんたが断れなくなるって、この前カイに言われた。……あいつ、余計なこと言うんだよ。余計なこと言われて、正しかったから腹</p><audio controls preload="none" src="/amour-eternel-play/v3/haru_ep04_008.mp3"></audio></section><section class="c"><h3><span class="b">アレン→ルシアン</span>アレン<span class="m">声色 0.119 ／ 108Hz</span></h3><p class="t">うわ、出た。ルシアン先生の&quot;観察&quot;。おい、あんまり怖がらせんなよ。逃げちゃうぜ、その子。</p><audio controls preload="none" src="/amour-eternel-play/v3/lucian_ep01_008.mp3"></audio></section><section class="c"><h3><span class="b">ルシアン→アレン</span>ルシアン<span class="m">声色 0.127 ／ 104Hz</span></h3><p class="t">……アレン。人の話に窓から割り込むのは、感心しませんよ。……ええ、今日はここまでにいたしましょう。続きは、また。</p><audio controls preload="none" src="/amour-eternel-play/v3/lucian_ep01_009.mp3"></audio></section>
+
+<div class="box" style="margin-top:18px">
+<p><b>まだ本編には入れていません。</b>合格が出てから
+<code>assets/voice/</code> を差し替えます。</p>
+</div>
+</div></body></html>
